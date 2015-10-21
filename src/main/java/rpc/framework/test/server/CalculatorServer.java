@@ -1,8 +1,9 @@
-package rpc.framework.test;
+package rpc.framework.test.server;
 
 import java.io.IOException;
 
 import rpc.framework.SimpleRPCFramework;
+import rpc.framework.test.api.Calculator;
 
 public class CalculatorServer {
 

@@ -1,4 +1,6 @@
-package rpc.framework.test;
+package rpc.framework.test.server;
+
+import rpc.framework.test.api.Calculator;
 
 public class CalculatorImpl implements Calculator {
 

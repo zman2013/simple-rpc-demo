@@ -11,25 +11,20 @@ import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 
 public class SimpleRPCFramework {
 
     /**
      * 存储接口与实现的对应关系
      */
-    private final Map<Class<?>, Object> implCache = new HashMap<>();
+    private final Map<Class<?>, Object> implCache = new ConcurrentHashMap<>();
 
     /**
      * 存储接口与代理的对应关系
      */
-    private final Map<Class<?>, Object> proxyCache = new HashMap<>();
+    private final Map<Class<?>, Object> proxyCache = new ConcurrentHashMap<>();
 
-    /**
-     * 服务器端注册接口与相应实现。
-     *
-     * @param inteface
-     * @param instance
-     */
     public synchronized void registerImplements(Class<?> inteface, Object instance) {
         //检测接口是否已经存在
         if (implCache.containsKey(inteface)) {
@@ -39,9 +34,7 @@ public class SimpleRPCFramework {
         }
     }
 
-    /**
-     * 服务器端暴露端口，并监听调用请求
-     */
+    
     public void expose() throws IOException {
         //暴露服务端口
         @SuppressWarnings("resource")
@@ -77,9 +70,7 @@ public class SimpleRPCFramework {
 
     }
 
-    /**
-     * 获取调用端注册接口的代理
-     */
+    
     @SuppressWarnings("unchecked")
     public synchronized <T> T getProxy(final Class<T> inteface) {
         //检测接口是否已经存在

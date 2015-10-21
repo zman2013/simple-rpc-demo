@@ -1,6 +1,7 @@
-package rpc.framework.test;
+package rpc.framework.test.client;
 
 import rpc.framework.SimpleRPCFramework;
+import rpc.framework.test.api.Calculator;
 
 public class CalculatorCaller {
 
