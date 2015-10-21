@@ -2,7 +2,7 @@ package rpc.framework.test;
 
 import rpc.framework.SimpleRPCFramework;
 
-public class CalculatorClient {
+public class CalculatorCaller {
 
     public static void main(String[] args) {
         SimpleRPCFramework rpc = new SimpleRPCFramework();
